@@ -1,6 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <uses-permission android:name="android.permission.VIBRATE" /> 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission android:name="android.permission.CAMERA" /> 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> 
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> // 네트워크만을 이용하여 단말기 위치 구분
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCAITON" />  // 백그라운드에 있을 때에도 접근 가능
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />   // GPS와 네트워크를 함께 이용하여 더욱 정확한 위치 정보 제공
+
 
     <application
       android:name=".MainApplication"
