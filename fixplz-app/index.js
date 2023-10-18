@@ -6,7 +6,7 @@ import {name as appName} from './app.json';
 AppRegistry.registerComponent(appName, () => App);
 
 // Enter -----------------------------------------------------
-import splash from './src/screen/ent/splash';
+import splash from './src/screen/enter/splash';
 import {Permission} from 'react-native-permissions';
 import onBoarding from './src/screen/Enter/onBoarding';
 
