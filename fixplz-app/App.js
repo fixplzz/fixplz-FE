@@ -11,7 +11,7 @@ LogBox.ignoreAllLogs();
 // Enter ============================================================================================
 import onBoarding from './src/screen/Enter/onBoarding';
 import {Permission} from 'react-native-permissions/dist/typescript/types';
-import splash from './src/screen/Enter/splash';
+import splash from './src/screen/ent/splash';
 
 // Main =============================================================================================
 import mainPage from './src/screen/Main/mainPage';
