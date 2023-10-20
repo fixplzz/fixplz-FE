@@ -1,0 +1,117 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
+body {
+  font-family: "NanumSquare", sans-serif !important;
+}
+.normal {
+  font-weight: 400;
+}
+.bold {
+  font-weight: 700;
+}
+.bolder {
+  font-weight: 800;
+}
+.light {
+  font-weight: 300;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.stat {
+  float: left;
+  position: relative;
+  width: 89%;
+  height: 100%;
+
+  .visitor-wrapper {
+    width: 1040px;
+    margin-left: 300px;
+
+    .visitor-day {
+      text-align: center;
+      display: inline-block;
+      background-color: white;
+      box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      margin-top: 80px;
+      padding: 20px;
+      width: 300px;
+      height: 30px;
+
+      &:hover {
+        background-color: lightblue;
+        cursor: pointer;
+      }
+
+      .subtitle {
+        font-weight: 800;
+        font-size: 20px;
+      }
+    }
+
+    .visitor-month {
+      text-align: center;
+      display: inline-block;
+      background-color: white;
+      box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 300px;
+      height: 30px;
+
+      &:hover {
+        background-color: lightblue;
+        cursor: pointer;
+      }
+
+      .subtitle {
+        font-weight: 800;
+        font-size: 20px;
+      }
+    }
+
+    .visitor-year {
+      text-align: center;
+      display: inline-block;
+      background-color: white;
+      box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 300px;
+      height: 30px;
+
+      &:hover {
+        background-color: lightblue;
+        cursor: pointer;
+      }
+
+      .subtitle {
+        font-weight: 800;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .visitor-graph {
+    display: inline-block;
+    background-color: white;
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 300px;
+    padding: 20px;
+    width: 1000px;
+    height: 530px;
+
+    .subtitle {
+      font-weight: 800;
+      font-size: 20px;
+    }
+  }
+}
