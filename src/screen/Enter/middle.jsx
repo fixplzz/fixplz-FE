@@ -1,10 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-export default function onBoarding() {
+export default function middle() {
   return (
     <View>
-      <Text>onBoarding</Text>
+      <Text>middle</Text>
     </View>
   );
 }

@@ -1,16 +1,18 @@
 import App from './App';
-import axios from 'axios';
+// import axios from 'axios';
+import {SvgUri} from 'react-native-svg';
 import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json';
+import {name as fixplzz} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+// Component  -----------------------------------------------
+import Footer from './src/component/footer';
+import Header from './src/component/header';
 
 // Enter -----------------------------------------------------
-import splash from './src/screen/Enter/splash';
-import {Permission} from 'react-native-permissions';
-import onBoarding from './src/screen/Enter/onBoarding';
+import Splash from './src/screen/Enter/splash';
+import Middle from './src/screen/Enter/middle';
 
 // Main ------------------------------------------------------
-import MainPage from './src/screen/Main/mainPage';
+import MainPage from './src/screen/Main/main-page';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(fixplzz, () => App);
