@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  Dimensions,
+  Platform,
+} from 'react-native';
 import Header from '../../component/header';
 
 const deviceWidth = Dimensions.get('window').width;
