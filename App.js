@@ -2,6 +2,7 @@ import React from 'react';
 import Onboarding from 'react-native-onboarding-swiper';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {LogBox} from 'react-native';
@@ -9,13 +10,12 @@ LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
 // Enter ============================================================================================
-import onBoarding from './src/screen/Enter/onBoarding';
-import {Permission} from 'react-native-permissions/dist/typescript/types';
-import splash from './src/screen/Enter/splash';
+import OnBoarding from './src/screen/Enter/onboarding';
+import PermissionPage from './src/screen/Enter/permisson-page';
+import Splash from './src/screen/Enter/splash';
 
 // Main =============================================================================================
-import mainPage from './src/screen/Main/mainPage';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import MainPage from './src/screen/Main/main-page';
 
 // ================================================================================================== //
 const Tab = createBottomTabNavigator();
@@ -29,23 +29,23 @@ function App() {
         <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen
             name="Splash"
-            component={splash}
+            component={Splash}
             options={{headerShown: false}}
           />
           <Stack.Screen
             name="OnBoarding"
-            component={onBoarding}
+            component={OnBoarding}
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="Permission"
-            component={Permission}
+            name="PermissionPage"
+            component={PermissionPage}
             options={{headerShown: false}}
           />
           {/* ------------------------------- Main Page --------------------------------- */}
           <Stack.Screen
             name="MainPage"
-            component={mainPage}
+            component={MainPage}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
