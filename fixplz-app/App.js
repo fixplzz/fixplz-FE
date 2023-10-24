@@ -10,8 +10,8 @@ LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
 // Enter ============================================================================================
-import OnBoarding from './src/screen/Enter/onboarding';
-import PermissionPage from './src/screen/Enter/permisson-page';
+import OnBoarding from './src/screen/enter/onboarding';
+import PermissionPage from './src/screen/enter/permisson-page';
 import Splash from './src/screen/enter/splash';
 
 // Main =============================================================================================

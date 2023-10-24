@@ -3,7 +3,7 @@ import {SvgUri} from 'react-native-svg';
 import {TouchableOpacity, View, StyleSheet} from 'react-native';
 
 import menubar from '../../android/app/src/main/assets/image/menubar.svg';
-import logo from '../../android/app/src/main/assets/image/logo.svg';
+import logo from '../../android/app/src/main/assets/image/sdlogo.svg';
 import bell from '../../android/app/src/main/assets/image/bell.svg';
 import users from '../../android/app/src/main/assets/image/users.svg';
 
