@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NotFound from "./pages/error/error-page";
-import MainPage from "./pages/main/main-page";
+import NotFound from "./admin/pages/error/error-page";
+import MainPage from "./admin/pages/main/main-page";
 
 function App() {
   return (
