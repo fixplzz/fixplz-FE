@@ -42,11 +42,7 @@ const MainPage = () => {
       <div className="main-page">
         <div className="menubar">
           <div className="logo-icon">
-            <img
-              src="/assets/imgs/87be945e657ca80a.png"
-              alt="로고"
-              width="150px"
-            />
+            <img src="/assets/imgs/mainlogo.png" alt="로고" width="150px" />
           </div>
           <div className="menubar-btn-wrapper">
             <div
