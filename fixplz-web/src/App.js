@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Admin ----------------------------------------------------------------------
 import MainPage from "./admin/pages/main/main-page";
+import LoginPage from "./admin/pages/main/login-page";
 import NotFound from "./admin/pages/error/error-page";
 
 // Users ----------------------------------------------------------------------
@@ -19,6 +20,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<TemplatePage />} />
           <Route path="/admin" element={<MainPage />} />
+          <Route path="/admin/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
