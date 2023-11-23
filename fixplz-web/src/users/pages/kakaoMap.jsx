@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./template-page";
+import "./templatePage";
 
 const { kakao } = window;
 

@@ -1,6 +1,6 @@
 import React from "react";
-import "../../asset/styles/reportComplete.scss";
-import { ReactComponent as Complete } from "../../asset/image/complete.svg";
+import "../asset/styles/reportComplete.scss";
+import { ReactComponent as Complete } from "../asset/image/complete.svg";
 
 function ReportComplete() {
   return (
