@@ -1,0 +1,94 @@
+.body {
+    margin: 0%;
+}
+
+button.opacity {
+    text-align: center;
+    background-color: #443D3D;
+    color: white;
+    display: block;
+    padding: 2% 0 2.5% 0; // 상 우 하 좌
+    border-radius: 50px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    width: 40%;
+    cursor: pointer;
+    margin: 5% 0 7% 30%; // 상 우 하 좌
+    transition: all 0.1s ease-in-out;
+    border: none;
+
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.logo {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-container {
+    position: absolute;
+    width: 40%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+
+    background: #443D3D;
+}
+
+.container {
+    display: flex;
+    left: 40%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 60%;
+    position: relative;
+}
+
+
+.login-container {
+    position: relative;
+    width: 35rem;
+    text-align: center;
+
+    .form-container {
+        border: 1px solid hsla(0, 0%, 65%, 0.158);
+        box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(20px);
+        z-index: 99; // 맨 앞으로 돌출되도록!
+        padding: 2rem;
+    }
+
+    text {
+        font-size: 1.2rem;
+        display: block;
+        margin: 5% 0 -2.5% 3%; // 상 우 하 좌
+        font-weight: bold;
+        letter-spacing: -1px;
+    }
+
+    form input {
+        text-align: center;
+        border-radius: 50px;
+        display: block;
+        padding: 3%;
+        width: 100%;
+        margin: 1rem 0;
+        background-color: #9191911f;
+        border: none;
+        font-weight: 400;
+        letter-spacing: -1px;
+        font-size: 1rem;
+        backdrop-filter: blur(15px);
+
+        &:focus {
+            box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+            animation: wobble 0.3s ease-in;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Admin ----------------------------------------------------------------------
 import MainPage from "./admin/pages/main/main-page";
+import LoginPage from "./admin/pages/main/login-page";
 import NotFound from "./admin/pages/error/error-page";
 
 // Users ----------------------------------------------------------------------
@@ -20,6 +21,8 @@ function App() {
           <Route path="/admin" element={<MainPage />} />
           <Route path="/kakaomap" element={<KakaoMap />} />
           <Route path="/reportComplete" element={<ReportComplete />} />
+          <Route path="/admin/login" element={<LoginPage />} />
+
         </Routes>
       </BrowserRouter>
     </>
