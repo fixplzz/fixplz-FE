@@ -1,0 +1,126 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+* {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.normal {
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+
+.bold {
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.bolder {
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.light {
+  font-weight: 300;
+  letter-spacing: -2px;
+}
+
+body {
+  margin: 0;
+  height: auto;
+  overflow: auto;
+}
+
+.mainlogo {
+  margin: 5% 0 0 0;
+}
+
+.box {
+  width: 30%;
+  height: 40px;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #018c0d;
+  margin: 3% 0 5% 34%;
+}
+
+// .report-box {
+//   width: 80%;
+//   height: 40px;
+//   display: flex;
+//   border-radius: 10px;
+//   align-items: center;
+//   justify-content: center;
+//   border: 0.5px solid black;
+//   margin: 0.5% 0 5% 10%;
+// }
+
+.report-keyword-data,
+.report-loc-data,
+.facility-type-data {
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0 0 10% 0;
+}
+
+.report-loc,
+.report-keyword,
+.facility-type {
+  line-height: 25px;
+}
+
+.report-detail-data {
+  font-weight: 200;
+  font-size: 20px;
+  white-space: pre-wrap; // 줄 바꿈 인식
+}
+
+.report-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.report-image {
+  width: 60%;
+  height: 200px;
+  border-radius: 10px;
+  margin: 1% 0 10px 0;
+}
+
+p.header {
+  font-size: 18px;
+  color: #018c0d;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.report-container {
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-size: 25px;
+}
+
+.report-info {
+  letter-spacing: -1.5px;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 10% 0 0 0;
+}
+
+.report-submit {
+  font-size: 20px;
+  margin: 1% 0 10% 0;
+  padding: 10px 70px;
+  border: none;
+  border-radius: 35px;
+  background-color: #86a789;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5e7560;
+  }
+}

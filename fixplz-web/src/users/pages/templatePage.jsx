@@ -1,9 +1,11 @@
-import "./kakao-map";
-import React from "react";
-import KakaoMap from "./kakao-map";
-import "../../asset/styles/template-page.scss";
-import { ReactComponent as Plusimage } from "../../asset/image/plusimage.svg";
-import ReportCategory from "../../components/report-category";
+import "./kakaoMap";
+import KakaoMap from "./kakaoMap";
+import React, { useContext } from "react";
+import "../asset/styles/templatePage.scss";
+import ReportCategory from "../components/report-category";
+import ReportContext from "../reportContext";
+import { useNavigate } from "react-router-dom";
+import { ReactComponent as Plusimage } from "../asset/image/plusimage.svg";
 
 function TextBox({ text, style }) {
   return <div style={style}>{text}</div>;
@@ -12,15 +14,36 @@ function TextBox({ text, style }) {
 const TemplatePage = () => {
   const [image1, setImage1] = React.useState(null);
   const [image2, setImage2] = React.useState(null);
+  const { report, setReport } = useContext(ReportContext);
+  const navigate = useNavigate();
 
-  const onImageChange = (event, setImage) => {
+  const onImageChange = (event, setImage, imageIndex) => {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (e) => {
         setImage(e.target.result);
+        setReport((prevReport) => {
+          const newReportImages = [...prevReport.reportImages];
+          newReportImages[imageIndex] = e.target.result;
+          return {
+            ...prevReport,
+            reportImages: newReportImages,
+          };
+        });
       };
       reader.readAsDataURL(event.target.files[0]);
     }
+  };
+
+  const handleReportDetailChange = (event) => {
+    setReport({
+      ...report,
+      reportDetail: event.target.value,
+    });
+  };
+
+  const handleSubmit = () => {
+    navigate("/templateCheck");
   };
 
   return (
@@ -44,7 +67,6 @@ const TemplatePage = () => {
           <div className="category">
             신고 카테고리 <text className="necessary">* 필수</text>
           </div>
-
           <ReportCategory />
           <div className="inputphoto">
             <div style={{ fontWeight: "bold" }}>
@@ -55,12 +77,12 @@ const TemplatePage = () => {
               <div className="image-input">
                 <input
                   type="file"
-                  onChange={(e) => onImageChange(e, setImage1)}
+                  onChange={(e) => onImageChange(e, setImage1, 0)}
                   style={{ display: "none" }}
                   id="file1"
                 />
                 {image1 ? (
-                  <img src={image1} alt="preview" />
+                  <img src={image1} alt="preview" className="image-preview" />
                 ) : (
                   <label htmlFor="file1" className="label-container">
                     <Plusimage className="plusimage" />
@@ -71,12 +93,12 @@ const TemplatePage = () => {
               <div className="image-input">
                 <input
                   type="file"
-                  onChange={(e) => onImageChange(e, setImage2)}
+                  onChange={(e) => onImageChange(e, setImage2, 1)}
                   style={{ display: "none" }}
                   id="file2"
                 />
                 {image2 ? (
-                  <img src={image2} alt="preview" />
+                  <img src={image2} alt="preview" className="image-preview" />
                 ) : (
                   <label htmlFor="file2" className="label-container">
                     <Plusimage className="plusimage" />
@@ -88,18 +110,19 @@ const TemplatePage = () => {
             <div className="inputtxt">
               민원 상세 작성
               <text className="necessary">* 필수</text>
-              <input
+              <textarea
                 type="text"
                 name="complaint"
                 className="complain-detail"
-                placeholder="불편사항을 자세히 작성해주세요..."
+                placeholder="불편사항을 자세히 작성해주세요 . . ."
+                onChange={handleReportDetailChange}
               />
             </div>
             <div className="notifications">
-              알림 톡 받기 <text className="necessary">* 필수</text>
+              휴대전화 인증 <text className="necessary">* 필수</text>
             </div>
             <div className="notifications-info">
-              전화번호를 입력해주시면, 민원 처리에 대한 알림을 보내드릴게요
+              전화번호를 입력해주시면, 민원 처리에 대한 알림을 보내드려요
             </div>
             <div className="phone-input-area">
               <input
@@ -119,7 +142,9 @@ const TemplatePage = () => {
               />
               <button className="number-verify-btn">확인</button>
             </div>
-            <button className="submit-report">민원 제출하기</button>
+            <button className="submit-report" onClick={handleSubmit}>
+              민원 제출하기
+            </button>
           </div>
         </div>
       </div>
