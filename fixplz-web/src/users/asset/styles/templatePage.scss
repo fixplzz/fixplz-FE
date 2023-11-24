@@ -285,4 +285,9 @@ text.optional {
   &:hover {
     background-color: #5e7560;
   }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 }
