@@ -2,7 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Admin ----------------------------------------------------------------------
+import AdminPage from "./admin/pages/admin-page";
 import MainPage from "./admin/pages/main/main-page";
+import DashboardPage from "./admin/pages/dashboard/dashboard-page";
+import FacilityPage from "./admin/pages/facility/facility-page";
+import ComplaintPage from "./admin/pages/complaint/complaint-page";
 import LoginPage from "./admin/pages/main/login-page";
 // import NotFound from "./admin/pages/error/error-page";
 
@@ -28,7 +32,12 @@ function App() {
         <BrowserRouter>
           <Routes>
             {/* Admin */}
-            <Route path="/admin" element={<MainPage />} />
+            <Route path="/admin" element={<AdminPage />}>
+              <Route path="main" element={<MainPage />} />
+              <Route path="dashboard" element={<DashboardPage />} />
+              <Route path="facility" element={<FacilityPage />} />
+              <Route path="complaint" element={<ComplaintPage />} />
+            </Route>
             {/* <Route path="*" element={<NotFound />} /> */}
             <Route path="/admin/login" element={<LoginPage />} />
 
