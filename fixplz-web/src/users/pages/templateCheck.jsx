@@ -1,28 +1,27 @@
-import axios from "axios";
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../asset/styles/templateCheck.scss";
 import ReportContext from "../reportContext";
 
 function TemplateCheck() {
   const { report } = useContext(ReportContext);
-  const navigate = useNavigate(); // useNavigate 훅 사용
+  // const navigate = useNavigate(); // useNavigate 훅 사용
 
-  const handleSubmission = async () => {
-    try {
-      // 서버에 민원 정보를 전송!
-      const response = await axios.post("A P I 호 출 !", report);
+  // const handleSubmission = async () => {
+  //   try {
+  //     // 서버에 민원 정보를 전송!
+  //     const response = await axios.post("A P I 호 출 !", report);
 
-      if (response.status === 200) {
-        console.log("민원 제출 성공");
-        navigate("/reportComplete");
-      } else {
-        console.log("민원 제출 실패");
-      }
-    } catch (error) {
-      console.error("민원 제출 중 에러 발생:", error);
-    }
-  };
+  //     if (response.status === 200) {
+  //       console.log("민원 제출 성공");
+  //       navigate("/reportComplete");
+  //     } else {
+  //       console.log("민원 제출 실패");
+  //     }
+  //   } catch (error) {
+  //     console.error("민원 제출 중 에러 발생:", error);
+  //   }
+  // };
 
   return (
     <>
@@ -68,9 +67,9 @@ function TemplateCheck() {
             {/* <hr /> */}
           </div>
           <div className="report-info">민원을 접수하시겠습니까?</div>
-          <button className="report-submit" onClick={handleSubmission}>
-            접수하기
-          </button>
+          <Link to="/reportComplete">
+            <button className="report-submit">접수하기</button>
+          </Link>
         </div>
       </div>
     </>
