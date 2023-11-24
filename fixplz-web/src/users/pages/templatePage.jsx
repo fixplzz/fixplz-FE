@@ -1,10 +1,11 @@
 import "./kakaoMap";
+import axios from "axios";
 import KakaoMap from "./kakaoMap";
-import React, { useContext } from "react";
 import "../asset/styles/templatePage.scss";
-import ReportCategory from "../components/report-category";
 import ReportContext from "../reportContext";
 import { useNavigate } from "react-router-dom";
+import ReportCategory from "../components/report-category";
+import React, { useState, useContext, useEffect } from "react";
 import { ReactComponent as Plusimage } from "../asset/image/plusimage.svg";
 
 function TextBox({ text, style }) {
@@ -12,11 +13,32 @@ function TextBox({ text, style }) {
 }
 
 const TemplatePage = () => {
+  const [authCode, setAuthCode] = useState("");
   const [image1, setImage1] = React.useState(null);
   const [image2, setImage2] = React.useState(null);
-  const { report, setReport } = useContext(ReportContext);
+  const [phoneNo, setPhoneNo] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const { report, setReport, keywords } = useContext(ReportContext);
+
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // 민원 상세 내용이 비어있지 않고, 키워드가 선택되었으며, 휴대전화 인증이 완료되었다면!
+    if (
+      report.reportDetail !== "" &&
+      keywords &&
+      keywords.length > 0 &&
+      !isVerified
+    ) {
+      setIsSubmitDisabled(false); // 제출 버튼 활성화
+    } else {
+      setIsSubmitDisabled(true); // 아니라면 비활성화
+    }
+  }, [report.reportDetail, keywords, isVerified]); // 상태가 변경될 때마다 체크
+
+  // =====================================================================================
+  // 민원 상세 작성에 이미지 첨부 기능 구현
   const onImageChange = (event, setImage, imageIndex) => {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
@@ -31,10 +53,11 @@ const TemplatePage = () => {
           };
         });
       };
-      reader.readAsDataURL(event.target.files[0]);
+      reader.readAsDataURL(event.target.files[0]); // 이미지 선택 시, 데이터 URL 형태로 읽음
     }
   };
 
+  // 상세 내용 작성 시, setReport를 통해 report 상태에 업데이트
   const handleReportDetailChange = (event) => {
     setReport({
       ...report,
@@ -42,9 +65,70 @@ const TemplatePage = () => {
     });
   };
 
-  const handleSubmit = () => {
-    navigate("/templateCheck");
+  // ===============================================================================================================
+  // 전화번호 입력 핸들러!
+  // 사용자가 입력한 인증 코드를 phoneNumber라는 상태 변수에 저장하는 역할-
+  const handleInputChange = (e) => {
+    setPhoneNo(e.target.value);
   };
+
+  // 사용자가 전송한 전화번호 전송 + 인증번호 요청
+  const requestAuthNumber = async () => {
+    console.log("phoneNo:", phoneNo);
+    try {
+      const response = await axios.post(
+        "http://192.168.0.18:8080/api/v1/complaint/sms/send",
+        {
+          phoneNo: phoneNo,
+        }
+      );
+      if (response.status === 200) {
+        console.log("인증번호 요청 성공");
+      }
+    } catch (error) {
+      console.error("인증번호 요청 실패", error.response.data);
+    }
+  };
+
+  // 인증 코드 입력 핸들러!
+  // 사용자가 입력한 인증 코드를 authcode라는 상태 변수에 저장하는 역할-
+  const handleAuthCodeChange = (e) => {
+    setAuthCode(e.target.value);
+  };
+
+  // 인증 코드 확인 함수!
+  const verifyAuthNumber = async () => {
+    try {
+      const response = await axios.post(
+        "http://192.168.0.18:8080/api/v1/complaint/sms/validate",
+        {
+          phoneNo: phoneNo,
+          inputAuthCode: authCode,
+        }
+      );
+      // console.log("Response data:", response.data);
+
+      if (response.status === 200) {
+        console.log("인증번호 확인 성공");
+        setIsVerified(true);
+      }
+    } catch (error) {
+      console.error("인증번호 요청 실패", error.response.data);
+    }
+  };
+
+  // ====================================================================================================
+  // 민원 제출 함수
+  const handleSubmit = () => {
+    if (!isVerified) {
+      alert("휴대전화 인증이 필요합니다.");
+      return;
+    } else {
+      navigate("/templateCheck");
+    }
+  };
+
+  // ====================================================================================================
 
   return (
     <div className="template-page">
@@ -57,10 +141,7 @@ const TemplatePage = () => {
           />
         </div>
         <div className="locinfo-box">
-          <TextBox
-            text="시설물의 위치 정보가 담길 예정이에요"
-            style={{ fontWeight: 900 }}
-          />
+          <TextBox text={`현 위치`} style={{ fontWeight: 900 }} />
         </div>
         <div className="map">
           <KakaoMap />
@@ -128,21 +209,33 @@ const TemplatePage = () => {
               <input
                 type="text"
                 name="phone"
+                value={phoneNo}
                 className="phone-input"
+                onChange={handleInputChange}
                 placeholder="전화번호를 입력해주세요."
               />
-              <button className="phone-verify-btn">인증</button>
+              <button className="phone-verify-btn" onClick={requestAuthNumber}>
+                인증
+              </button>
             </div>
             <div className="number-input-area">
               <input
                 type="text"
                 name="number"
+                value={authCode}
+                onChange={handleAuthCodeChange}
                 className="number-input"
                 placeholder="전송받은 인증번호를 입력해주세요."
               />
-              <button className="number-verify-btn">확인</button>
+              <button className="number-verify-btn" onClick={verifyAuthNumber}>
+                확인
+              </button>
             </div>
-            <button className="submit-report" onClick={handleSubmit}>
+            <button
+              className={`submit-report ${isSubmitDisabled ? "disabled" : ""}`}
+              onClick={handleSubmit}
+              disabled={isSubmitDisabled}
+            >
               민원 제출하기
             </button>
           </div>
