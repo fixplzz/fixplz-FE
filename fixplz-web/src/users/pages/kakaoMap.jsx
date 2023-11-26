@@ -26,6 +26,7 @@ const KakaoMap = () => {
       center: new kakao.maps.LatLng(33.450701, 126.570667),
       level: 3,
     };
+
     const kakaoMap = new kakao.maps.Map(container, options);
     kakaoMap.setDraggable(false); //드래그 막기
     kakaoMap.setZoomable(false); //줌 막기
@@ -39,6 +40,7 @@ const KakaoMap = () => {
       ); // 현재 위치로 지도의 중심을 이동시킴!
     }
   }, [map, currentPosition]);
+
   useEffect(() => {
     if (map && currentPosition.lat && currentPosition.lng) {
       map.setCenter(
