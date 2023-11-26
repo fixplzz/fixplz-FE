@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { HelmetProvider } from "react-helmet-async";
 import { useNavigate, Outlet } from "react-router-dom";
 import SideBar from "../components/sidebar/side-bar";
 import "../assets/scss/admin-page.scss";
@@ -17,22 +17,32 @@ const AdminPage = () => {
       return;
     } else {
       history("/admin/main");
+      return;
     }
   };
 
   useEffect(() => {
     access();
+    setLoading(true);
   }, []);
+
   return (
     <>
-      <div className="admin-page-container">
-        <div className="admin-page-sidebar">
-          <SideBar />
+      <HelmetProvider>
+        <title>도로 위 성동구 - 관리자 페이지</title>
+      </HelmetProvider>
+      {loading === true ? (
+        <div className="admin-page-container">
+          <div className="admin-page-sidebar">
+            <SideBar />
+          </div>
+          <div className="admin-page-content">
+            <Outlet />
+          </div>
         </div>
-        <div className="admin-page-content">
-          <Outlet />
-        </div>
-      </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

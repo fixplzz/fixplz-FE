@@ -107,6 +107,80 @@ body {
   }
 }
 
+// 검색 컴포넌트
+.search {
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bs-body-bg);
+
+  .search-title {
+    width: 100px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+
+  .search-content {
+    display: flex;
+
+    div {
+      line-height: 30px;
+    }
+
+    label {
+      font-size: 1em;
+      display: inline;
+      margin-right: 15px;
+    }
+
+    input[type="radio"]:not(:nth-last-child(1)) {
+      margin-right: 20px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      border: 1px solid var(--bs-gray-500);
+      padding: 0;
+      margin-left: 10px;
+      border-radius: 3px;
+    }
+  }
+
+  select {
+    width: 120px;
+    border: 1px solid var(--bs-gray-500);
+    border-radius: 3px;
+    padding: 0;
+    height: 30px;
+    padding-left: 10px;
+  }
+
+  button {
+    width: 80px;
+    height: 30px;
+    margin: 0;
+  }
+
+  .search-content:not(:nth-last-child(1)) {
+    margin-bottom: 10px;
+  }
+
+  .only {
+    margin: 0 !important;
+  }
+
+  .search-btn {
+    display: flex;
+    flex-direction: column;
+
+    .reset-btn {
+      margin-bottom: 8px;
+    }
+  }
+}
+
 // 컨텐츠 창
 .admin-page-content {
   width: 80%;
