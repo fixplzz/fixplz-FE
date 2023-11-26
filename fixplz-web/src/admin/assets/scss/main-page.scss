@@ -1,80 +1,126 @@
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
-body {
-  font-family: "NanumSquare", sans-serif !important;
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+* {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
+
 .normal {
   font-weight: 400;
+  letter-spacing: -2px;
 }
+
 .bold {
   font-weight: 700;
+  letter-spacing: -2px;
 }
+
 .bolder {
   font-weight: 800;
+  letter-spacing: -2px;
 }
+
 .light {
   font-weight: 300;
+  letter-spacing: -2px;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  height: auto;
+  overflow: auto;
 }
 
 .main-page {
-  background-color: #d9d9d9;
-  width: 1920px;
-  // width: 100%;
-  height: 950px;
-  // border: 3px solid green;
+  width: 80%; /* 설정한 너비 */
+  margin: 0 auto; /* 중앙 정렬 */
 
-  .menubar {
-    float: left;
-    position: relative;
-    width: 10%;
-    height: 100%;
-    background-color: white;
-    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
+  .title {
+    font-size: 28px;
+    letter-spacing: -2px;
+    margin: 12% 0% 2% 3%;
+  }
+
+  .container-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* 상위 컨테이너의 너비에 맞춤 */
+  }
+
+  .main-page-container,
+  .main-page-container2,
+  .main-page-container3 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+
+    svg {
+      margin-right: 10px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(1px);
+      z-index: 99;
+      padding: 1rem 5rem;
+      border-radius: 10px;
+      letter-spacing: -1.5px;
+
+      .count {
+        margin-left: 10px;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background-color: #d9d9d9;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
   }
 }
 
-.logo-icon {
-  height: auto;
-  margin-top: 20px;
-  margin-left: 25px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.subtitle {
-  font-weight: 800;
-  font-size: 20px;
-}
-
-%menubar-btn {
-  box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  text-align: center;
-  margin: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  &:hover {
-    background-color: lightgray;
+.main-page-container4 {
+  position: relative;
+  .map-overlay {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    display: flex;
+    gap: 10px;
+    z-index: 99;
+  }
+  div.facility-01,
+  div.facility-02,
+  div.facility-03 {
+    letter-spacing: -1px;
+    background-color: #d9d9d9;
+    color: black;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
   }
-}
-
-.menubar-btn-wrapper {
-  .menubar-btn1 {
-    @extend %menubar-btn;
+  .facility-01:hover,
+  .facility-02:hover,
+  .facility-03:hover {
+    // background-color: #1b8ee7;
+    font-weight: bold;
   }
-  .menubar-btn2 {
-    @extend %menubar-btn;
-  }
-  .menubar-btn3 {
-    @extend %menubar-btn;
-  }
-  .menubar-btn4 {
-    @extend %menubar-btn;
+  .facility-01.selected,
+  .facility-02.selected,
+  .facility-03.selected {
+    background-color: #105d98;
+    color: white;
   }
 }

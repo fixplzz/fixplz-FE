@@ -34,6 +34,7 @@ body {
   border-right: 2px solid var(--ptf-color-black);
   width: 20%;
   height: 100vh;
+  letter-spacing: -1px;
 
   .admin-logo-div {
     display: flex;
@@ -91,6 +92,7 @@ body {
 
   button {
     background-color: white;
+    letter-spacing: -1px;
     color: #443d3d;
     font-size: large;
     font-weight: bold;
@@ -101,7 +103,7 @@ body {
     cursor: pointer;
 
     &:hover {
-      background-color: #87a690;
+      background-color: #7c7777;
       color: white;
     }
   }

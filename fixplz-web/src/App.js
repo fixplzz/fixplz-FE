@@ -8,6 +8,7 @@ import DashboardPage from "./admin/pages/dashboard/dashboard-page";
 import FacilityPage from "./admin/pages/facility/facility-page";
 import ComplaintPage from "./admin/pages/complaint/complaint-page";
 import LoginPage from "./admin/pages/main/login-page";
+import FacilityMap from "./admin//pages/facility/facility-map";
 // import NotFound from "./admin/pages/error/error-page";
 
 // Users ----------------------------------------------------------------------
@@ -36,6 +37,7 @@ function App() {
               <Route path="main" element={<MainPage />} />
               <Route path="dashboard" element={<DashboardPage />} />
               <Route path="facility/*" element={<FacilityPage />} />
+              <Route path="facility-map" element={<FacilityMap />} />
               <Route path="complaint" element={<ComplaintPage />} />
             </Route>
             {/* <Route path="*" element={<NotFound />} /> */}
