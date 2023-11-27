@@ -22,6 +22,7 @@ const SearchBox = (props) => {
   };
 
   const operOptions = [
+    { val: "", name: "선택" },
     { val: "1", name: "정상운영" },
     { val: "0", name: "운영중지" },
     { val: "2", name: "공사중" },
@@ -78,9 +79,14 @@ const SearchBox = (props) => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <button onClick={() => getOtherParam(linkStr)}>
-        <Link to={`${link}`}>검색</Link>
-      </button>
+      <Link to={`${link}`}>
+        <button
+          onClick={() => getOtherParam(linkStr)}
+          style={{ textDecoration: "none" }}
+        >
+          검색
+        </button>
+      </Link>
     </div>
   );
 };

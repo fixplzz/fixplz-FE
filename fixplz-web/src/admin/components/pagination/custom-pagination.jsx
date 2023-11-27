@@ -1,4 +1,5 @@
 import Pagination from "react-js-pagination";
+import "../../assets/scss/pagination.scss";
 
 const CustomPagination = ({ page, totalCnt, handlePagination }) => {
   return (

@@ -1,20 +1,14 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SelectCategory from "../../components/category/select-category";
 import FacilityContent from "./inner/facility-content";
 
 const FacilityPage = () => {
-  // const history = useNavigate();
   const category = [
     { cate: "all", name: "전체" },
     { cate: "smartShelter", name: "스마트 쉼터" },
-    { cate: "smartSmokeBooth", name: "스마트 흡연부스" },
+    { cate: "smartCrosswalk", name: "스마트 횡단보도" },
+    { cate: "smartRainGutter", name: "스마트 빗물받이" },
   ];
-
-  // useEffect(() => {
-  //   history("facility/all");
-  // }, []);
 
   return (
     <div className="bbs admin-container">

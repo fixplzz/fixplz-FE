@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import FacilityRegist from "../../components/facility/facility-regist";
+import FacilityUpdate from "../../components/facility/facility-update";
+import "bootstrap/dist/css/bootstrap.css";
+import "../../assets/scss/modal.scss";
 
 const CustomModal = (props) => {
   const separator = ", ";
-  const { cate } = useParams();
   const [data, setData] = useState([]);
-  const [searchParam, setSearchParam] = useSearchParams();
   const requestURL = `${process.env.REACT_APP_API_URL}/api/v1/${props.from}`;
   const from = props.from;
 
@@ -71,6 +72,7 @@ const CustomModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div>[ {props.checked.join(separator)} ]</div>
+        <ModalBody />
       </Modal.Body>
       <Modal.Body>
         {props.category === "delete" ? (
