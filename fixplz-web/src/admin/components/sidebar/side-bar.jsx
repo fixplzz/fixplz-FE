@@ -14,7 +14,7 @@ const menuContent = [
   },
   {
     name: "시설물",
-    route: "/admin/facility",
+    route: "/admin/facility/all",
   },
   {
     name: "민원",

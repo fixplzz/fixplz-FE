@@ -36,7 +36,7 @@ function App() {
             <Route path="/admin" element={<AdminPage />}>
               <Route path="main" element={<MainPage />} />
               <Route path="dashboard" element={<DashboardPage />} />
-              <Route path="facility" element={<FacilityPage />} />
+              <Route path="facility/*" element={<FacilityPage />} />
               <Route path="facility-map" element={<FacilityMap />} />
               <Route path="complaint" element={<ComplaintPage />} />
             </Route>

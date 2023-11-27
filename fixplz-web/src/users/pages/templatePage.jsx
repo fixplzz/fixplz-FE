@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import ReportCategory from "../components/report-category";
 import React, { useState, useContext, useEffect } from "react";
 import { ReactComponent as Plusimage } from "../asset/image/plusimage.svg";
+import FacilityMap from "../../admin/pages/facility/facility-map";
 
 function TextBox({ text, style }) {
   return <div style={style}>{text}</div>;
@@ -28,14 +29,15 @@ const TemplatePage = () => {
     if (
       report.reportDetail !== "" &&
       keywords &&
-      keywords.length > 0 &&
-      !isVerified
+      keywords.length > 0
+      // &&
+      // !isVerified
     ) {
       setIsSubmitDisabled(false); // 제출 버튼 활성화
     } else {
       setIsSubmitDisabled(true); // 아니라면 비활성화
     }
-  }, [report.reportDetail, keywords, isVerified]); // 상태가 변경될 때마다 체크
+  }, [report.reportDetail, keywords]); // 상태가 변경될 때마다 체크
 
   // =====================================================================================
   // 민원 상세 작성에 이미지 첨부 기능 구현
@@ -76,8 +78,10 @@ const TemplatePage = () => {
   const requestAuthNumber = async () => {
     console.log("phoneNo:", phoneNo);
     try {
+      console.log(`${process.env.REACT_APP_API_URL}`);
+      alert("인증 번호가 발송되었습니다.");
       const response = await axios.post(
-        "http://192.168.0.18:8080/api/v1/complaint/sms/send",
+        `${process.env.REACT_APP_API_URL}/api/v1/complaint/sms/send`,
         {
           phoneNo: phoneNo,
         }
@@ -100,20 +104,22 @@ const TemplatePage = () => {
   const verifyAuthNumber = async () => {
     try {
       const response = await axios.post(
-        "http://192.168.0.18:8080/api/v1/complaint/sms/validate",
+        `${process.env.REACT_APP_API_URL}/api/v1/complaint/sms/validate`,
         {
           phoneNo: phoneNo,
-          inputAuthCode: authCode,
+          code: authCode,
         }
       );
       // console.log("Response data:", response.data);
 
       if (response.status === 200) {
-        console.log("인증번호 확인 성공");
+        alert("인증번호 확인 성공");
         setIsVerified(true);
+        setIsSubmitDisabled(false);
       }
     } catch (error) {
       console.error("인증번호 요청 실패", error.response.data);
+      alert(error);
     }
   };
 
@@ -144,7 +150,12 @@ const TemplatePage = () => {
           <TextBox text={`현 위치`} style={{ fontWeight: 900 }} />
         </div>
         <div className="map">
-          <KakaoMap />
+          <KakaoMap
+            positions={{ lat: "37.5640091441608", lng: "127.036688322947" }}
+          />
+          {/* <FacilityMap
+            positions={{ lat: "127.024082467223", lon: "37.5666029325047" }}
+          /> */}
           <div className="category">
             신고 카테고리 <text className="necessary">* 필수</text>
           </div>
@@ -234,7 +245,7 @@ const TemplatePage = () => {
             <button
               className={`submit-report ${isSubmitDisabled ? "disabled" : ""}`}
               onClick={handleSubmit}
-              disabled={isSubmitDisabled}
+              // disabled={isSubmitDisabled}
             >
               민원 제출하기
             </button>
