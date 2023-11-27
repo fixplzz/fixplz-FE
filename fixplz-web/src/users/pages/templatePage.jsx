@@ -31,9 +31,9 @@ const TemplatePage = () => {
       keywords.length > 0 &&
       !isVerified
     ) {
-      setIsSubmitDisabled(false); // 제출 버튼 활성화
+      setIsSubmitDisabled(true); // 제출 버튼 활성화
     } else {
-      setIsSubmitDisabled(true); // 아니라면 비활성화
+      setIsSubmitDisabled(false); // 아니라면 비활성화
     }
   }, [report.reportDetail, keywords, isVerified]); // 상태가 변경될 때마다 체크
 
@@ -139,6 +139,9 @@ const TemplatePage = () => {
             text="☎️ 스마트도시과 | 02-2286-6331"
             style={{ fontWeight: 900 }}
           />
+        </div>
+        <div className="facility-box">
+          <TextBox text={`시설물 종류`} style={{ fontWeight: 900 }} />
         </div>
         <div className="locinfo-box">
           <TextBox text={`현 위치`} style={{ fontWeight: 900 }} />
