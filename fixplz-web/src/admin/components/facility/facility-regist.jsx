@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import KakaoMap from "../../../users/pages/kakaoMap";
 import FacilityMap from "../../pages/facility/facility-map";
 import DaumPost from "../post/daum-post";
 
@@ -30,7 +31,7 @@ const FacilityRegist = ({ onHide }) => {
     requestBody.departmentNumber = departmentNumber;
     requestBody.latitude = latitude;
     requestBody.longitude = longitude;
-
+    console.log(requestBody);
     axios
       .post(requestUrl, requestBody)
       .then((resp) => {
@@ -50,6 +51,7 @@ const FacilityRegist = ({ onHide }) => {
               <label htmlFor="title">시설 명</label>
               <input
                 type="text"
+                id="title"
                 value={title || ""}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -72,6 +74,7 @@ const FacilityRegist = ({ onHide }) => {
                 placeholder="행정 동"
                 onChange={(e) => setAdministrateDong(e.target.value)}
                 required
+                style={{ width: "30%", marginRight: "30px" }}
               />
               <DaumPost
                 setAdministrateDong={setAdministrateDong}
@@ -79,6 +82,8 @@ const FacilityRegist = ({ onHide }) => {
                 setLatitude={setLatitude}
                 setLongitude={setLongitude}
               />
+            </div>
+            <div>
               <input
                 type="text"
                 style={{ marginTop: "10px" }}
@@ -103,10 +108,9 @@ const FacilityRegist = ({ onHide }) => {
                   placeholder="경도"
                   onChange={(e) => setLongitude(e.target.value)}
                 />
-                <FacilityMap
-                  positions={{ lat: latitude, lon: longitude }}
-                  style={{ zIndex: 1 }}
-                />
+              </div>
+              <div style={{ width: "100%" }}>
+                <FacilityMap positions={[{ lat: latitude, lng: longitude }]} />
               </div>
               <div>
                 <label htmlFor="department">담당 부서</label>

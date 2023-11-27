@@ -69,7 +69,6 @@ const FacilityContent = () => {
                 <th>시설 종류</th>
                 <th>행정 동</th>
                 <th>주소</th>
-                <th>설치일</th>
                 <th>운영 상태</th>
               </tr>
             </thead>
@@ -99,9 +98,119 @@ const FacilityContent = () => {
                   );
                 })
               ) : (
-                <tr style={{ textAlign: "center" }}>
-                  <td colSpan="10">데이터가 없습니다.</td>
-                </tr>
+                <>
+                  <tr style={{ textAlign: "center" }}>
+                    {/* <td colSpan="10">데이터가 없습니다.</td> */}
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>1</td>
+                    <td>성동구청</td>
+                    <td>스마트 쉼터</td>
+                    <td>행당제1동</td>
+                    <td>서울특별시 성동구 고산자로 280</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>2</td>
+                    <td>센트라스, 성동고방면</td>
+                    <td>스마트 쉼터</td>
+                    <td>왕십리도선동</td>
+                    <td>서울특별시 성동구 왕십리로 410</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>3</td>
+                    <td>상왕십리역</td>
+                    <td>스마트 쉼터</td>
+                    <td>행당제1동</td>
+                    <td>서울특별시 성동구 고산자로 164</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>4</td>
+                    <td>성동세무서</td>
+                    <td>스마트 쉼터</td>
+                    <td>송정동</td>
+                    <td>서울특별시 성동구 광나루로 311</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>5</td>
+                    <td>한양대정문 앞</td>
+                    <td>스마트 쉼터</td>
+                    <td>사근동</td>
+                    <td>서울특별시 성동구 왕십리로 222</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>6</td>
+                    <td>금호역</td>
+                    <td>스마트 쉼터</td>
+                    <td>금호2-3가동</td>
+                    <td>서울특별시 성동구 매봉길 50</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>7</td>
+                    <td>옥수파출소 앞</td>
+                    <td>스마트 쉼터</td>
+                    <td>옥수동</td>
+                    <td>서울특별시 성동구 독서당로 211</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>8</td>
+                    <td>신금호역</td>
+                    <td>스마트 쉼터</td>
+                    <td>금호2-3가동</td>
+                    <td>서울특별시 성동구 금호로 173</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>9</td>
+                    <td>응봉동주민센터</td>
+                    <td>스마트 쉼터</td>
+                    <td>응봉동</td>
+                    <td>서울특별시 성동구 독서당로 424</td>
+                    <td>정상 운영</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>10</td>
+                    <td>성수동이마트</td>
+                    <td>스마트 쉼터</td>
+                    <td>성수동제2가</td>
+                    <td>서울특별시 성동구 뚝섬로 377</td>
+                    <td>정상 운영</td>
+                  </tr>
+                </>
               )}
             </tbody>
           </Table>

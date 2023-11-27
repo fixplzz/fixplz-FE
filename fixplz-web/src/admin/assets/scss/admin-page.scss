@@ -2,6 +2,24 @@
 body {
   font-family: "NanumSquare", sans-serif !important;
   background-color: rgb(245, 245, 245);
+
+  button {
+    background-color: white;
+    text-decoration: none;
+    color: #443d3d;
+    margin: 10px 0;
+    padding: 3px 10px 3px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #87a690;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  button:hover,
+  .active {
+    background-color: #87a690;
+    color: white;
+  }
 }
 .normal {
   font-weight: 400;
