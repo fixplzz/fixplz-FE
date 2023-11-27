@@ -54,147 +54,210 @@
 }
 
 .admin_update_container {
-  width: 766px;
-  margin: auto;
-
-  .review_regi_img {
-    .product_img {
-      grid-template-columns: 1fr 1fr 1fr 1fr !important;
-    }
-  }
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 
   .admin_update {
-    margin: 0 auto;
     width: 80%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-    fieldset .score_con {
-      position: relative;
+    form {
+      display: flex;
+      flex-direction: column;
 
-      .calcScore {
-        position: absolute;
-        top: 4px;
-        right: 13px;
-        font-size: 14px;
-        color: var(--bs-link-hover-color);
+      div {
+        margin-bottom: 10px;
 
-        p {
-          margin: auto;
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ddd;
+        }
+
+        .date_flex {
+          display: flex;
+          justify-content: space-between;
+
+          input[type="text"],
+          input[type="number"] {
+            width: calc(50% - 10px);
+          }
         }
       }
-    }
 
-    .profile_img {
-      margin: 0 auto;
-      width: 35%;
-      padding-bottom: 50px;
-
-      label {
-        font-size: 0.9rem;
-        color: #0095f6;
-      }
-    }
-
-    .product_img {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-
-      div,
-      li {
-        padding: 8px;
-        position: relative;
-      }
-
-      button {
-        border: none;
-        position: absolute;
-        background-color: transparent;
-        right: 10px;
-        top: 10px;
-      }
-    }
-
-    .comp_img {
-      position: relative;
-      margin-top: 20px;
-      width: 55%;
-
-      img {
-        width: "100%";
-      }
-    }
-
-    .add_padding {
-      padding-top: 50px;
-    }
-
-    label {
-      font-size: 1.07rem;
-      font-weight: 700;
-      color: var(--bs-teal);
-    }
-
-    textarea {
-      resize: none;
-      height: 37px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .date_flex {
-      display: flex;
-
-      input[type="number"] {
-        margin-right: 20px;
-      }
-
-      button {
-        width: 100px;
-        border: none;
-        background-color: var(--ptf-accent-1);
-        border-radius: 7px;
-        color: #123;
-      }
-
-      input[type="date"] {
-        background-color: var(--bs-gray-200);
-        color: var(--bs-gray-600);
-        border: none;
-        border-radius: 7px;
-        margin-bottom: 10px;
-        padding: 5px 14px;
-        line-height: 28px;
-      }
-
-      input[type="date"]::before {
-        content: attr(data-placeholder);
+      input[type="submit"] {
         width: 100%;
-      }
-
-      input[type="date"]:focus::before,
-      input[type="date"]:valid::before {
-        display: none;
-      }
-
-      input[type="date"]:first-child {
-        margin-right: 20px;
-      }
-    }
-
-    .text_flex {
-      display: flex;
-
-      textarea {
-        margin-right: 20px;
-      }
-
-      button {
-        width: 60px;
-        height: 35px;
+        padding: 10px 20px;
         border: none;
-        background-color: var(--ptf-accent-1);
-        border-radius: 7px;
-        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #87a690;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #45a049;
+        }
       }
     }
   }
 }
+
+// .admin_update_container {
+//   width: 766px;
+//   margin: auto;
+
+//   .review_regi_img {
+//     .product_img {
+//       grid-template-columns: 1fr 1fr 1fr 1fr !important;
+//     }
+//   }
+
+//   .admin_update {
+//     margin: 0 auto;
+//     width: 80%;
+
+//     fieldset .score_con {
+//       position: relative;
+
+//       .calcScore {
+//         position: absolute;
+//         top: 4px;
+//         right: 13px;
+//         font-size: 14px;
+//         color: var(--bs-link-hover-color);
+
+//         p {
+//           margin: auto;
+//         }
+//       }
+//     }
+
+//     .profile_img {
+//       margin: 0 auto;
+//       width: 35%;
+//       padding-bottom: 50px;
+
+//       label {
+//         font-size: 0.9rem;
+//         color: #0095f6;
+//       }
+//     }
+
+//     .product_img {
+//       display: grid;
+//       grid-template-columns: 1fr 1fr 1fr;
+
+//       div,
+//       li {
+//         padding: 8px;
+//         position: relative;
+//       }
+
+//       button {
+//         border: none;
+//         position: absolute;
+//         background-color: transparent;
+//         right: 10px;
+//         top: 10px;
+//       }
+//     }
+
+//     .comp_img {
+//       position: relative;
+//       margin-top: 20px;
+//       width: 55%;
+
+//       img {
+//         width: "100%";
+//       }
+//     }
+
+//     .add_padding {
+//       padding-top: 50px;
+//     }
+
+//     label {
+//       font-size: 1.07rem;
+//       font-weight: 700;
+//       color: var(--bs-teal);
+//     }
+
+//     textarea {
+//       resize: none;
+//       height: 37px;
+//       overflow: hidden;
+//       margin-bottom: 10px;
+//     }
+
+//     .date_flex {
+//       display: flex;
+
+//       input[type="number"] {
+//         margin-right: 20px;
+//       }
+
+//       button {
+//         width: 100px;
+//         border: none;
+//         background-color: var(--ptf-accent-1);
+//         border-radius: 7px;
+//         color: #123;
+//       }
+
+//       input[type="date"] {
+//         background-color: var(--bs-gray-200);
+//         color: var(--bs-gray-600);
+//         border: none;
+//         border-radius: 7px;
+//         margin-bottom: 10px;
+//         padding: 5px 14px;
+//         line-height: 28px;
+//       }
+
+//       input[type="date"]::before {
+//         content: attr(data-placeholder);
+//         width: 100%;
+//       }
+
+//       input[type="date"]:focus::before,
+//       input[type="date"]:valid::before {
+//         display: none;
+//       }
+
+//       input[type="date"]:first-child {
+//         margin-right: 20px;
+//       }
+//     }
+
+//     .text_flex {
+//       display: flex;
+
+//       textarea {
+//         margin-right: 20px;
+//       }
+
+//       button {
+//         width: 60px;
+//         height: 35px;
+//         border: none;
+//         background-color: var(--ptf-accent-1);
+//         border-radius: 7px;
+//         margin-bottom: 10px;
+//       }
+//     }
+//   }
+// }

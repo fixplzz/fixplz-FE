@@ -42,8 +42,8 @@ function DaumPost(props) {
       )
       .then((res) => {
         const location = res.data.documents[0];
-        props.setLatitude(location.address.x);
-        props.setLongitude(location.address.y);
+        props.setLatitude(location.address.y);
+        props.setLongitude(location.address.x);
         // props.setLocationObj({
         //   //검색해서 얻은 위치의 좌표를 획득
         //   locationX: location.address.x,
