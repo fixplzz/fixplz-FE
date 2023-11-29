@@ -105,21 +105,21 @@ const MainPage = () => {
           <div className="main-page-container">
             <p className="status">
               <Maining />
-              미처리
-              <text className="count">6</text>
+              미확인
+              <text className="count">5</text>
             </p>
           </div>
           <div className="main-page-container2">
             <p className="status">
               <Mainload />
-              처리 중<text className="count">7</text>
+              처리 중<text className="count">2</text>
             </p>
           </div>
           <div className="main-page-container3">
             <p className="status">
               <Maincom />
               답변 완료
-              <text className="count">62</text>
+              <text className="count">2</text>
             </p>
           </div>
         </div>

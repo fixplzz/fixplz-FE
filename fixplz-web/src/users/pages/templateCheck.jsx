@@ -36,12 +36,16 @@ function TemplateCheck() {
               위치
               <br /> -
             </div>
-            <div className="report-loc-data">{report.location}</div>
+            <div className="report-loc-data">
+              서울특별시 성동구 고산자로 280{report.location}
+            </div>
 
             <div className="facility-type">
               시설물 종류 <br /> -
             </div>
-            <div className="facility-type-data">{report.facilityInfo}</div>
+            <div className="facility-type-data">
+              스마트 쉼터{report.facilityInfo}
+            </div>
 
             <div className="report-keyword">
               민원 키워드 <br /> -

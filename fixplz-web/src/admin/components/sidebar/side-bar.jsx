@@ -69,7 +69,7 @@ const SideBar = () => {
                 history("/admin/login");
               }}
             >
-              로그인
+              로그아웃
             </button>
           )}
         </div>

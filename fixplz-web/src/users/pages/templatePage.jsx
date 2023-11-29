@@ -147,10 +147,13 @@ const TemplatePage = () => {
           />
         </div>
         <div className="facility-box">
-          <TextBox text={`시설물 종류`} style={{ fontWeight: 900 }} />
+          <TextBox text={`스마트 쉼터`} style={{ fontWeight: 900 }} />
         </div>
         <div className="locinfo-box">
-          <TextBox text={`현 위치`} style={{ fontWeight: 900 }} />
+          <TextBox
+            text={`서울특별시 성동구 고산자로 280`}
+            style={{ fontWeight: 900 }}
+          />
         </div>
         <div className="map">
           <KakaoMap

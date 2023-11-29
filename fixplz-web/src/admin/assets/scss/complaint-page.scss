@@ -1,6 +1,44 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
+body {
+  font-family: "NanumSquare", sans-serif !important;
+  background-color: rgb(245, 245, 245);
+
+  button {
+    background-color: white;
+    text-decoration: none;
+    color: #443d3d;
+    margin: 10px 0;
+    padding: 3px 10px 3px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #87a690;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  button:hover,
+  .active {
+    background-color: #87a690;
+    color: white;
+  }
+}
+
+.normal {
+  font-weight: 400;
+}
+.bold {
+  font-weight: 700;
+}
+.bolder {
+  font-weight: 800;
+}
+.light {
+  font-weight: 300;
+}
+
 .complaint-page {
-  width: 80%; /* 설정한 너비 */
+  width: 100%; /* 설정한 너비 */
   margin: 0 auto; /* 중앙 정렬 */
+  padding: 50px 150px;
 
   .title {
     font-size: 28px;
@@ -88,7 +126,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 5% 0% 0% 0%;
+    margin: 2% 0% 0% 0%;
   }
 
   th,
@@ -101,9 +139,10 @@
   th {
     background-color: #87a690;
     color: black;
-    font-weight: 400;
     letter-spacing: -1px;
     text-align: center;
+    font-size: 14px;
+    padding: 10px 0 10px 0;
   }
 
   tr:nth-child(even) {
@@ -113,4 +152,38 @@
   tr:hover {
     background-color: #ddd;
   }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  color: #443d3d;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #87a690;
+  color: white;
+  border: 1px solid #87a690;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
